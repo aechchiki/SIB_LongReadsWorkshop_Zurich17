@@ -12,7 +12,7 @@ cd $minion_dir
 # subset the fast5 files to create a smaller archive
 echo 'Generating a subset of the fast5 files mapping to the genome...'
 echo 'Generating list of mapped reads, from gmap gff3 file...'
-cat minion_gmap.gff3 | grep -v '^#' | cut -f9 | cut -d';' -f2 | sed 's/Name=//g' | uniq > minion2D_mappedID.txt
+cat minion_gmap.gff3 | grep -v '^#' | cut -f9 | cut -d';' -f2 | sed 's/Name=//g' | sort | uniq > minion2D_mappedID.txt
 echo 'Generating list of the reads ID in the 2D reads file...'
 cat minion_2D.fasta | grep '^>' | sed 's/>//' > reads2D_ID.txt
 echo 'Generating list of the reads ID that map to the reference...'
@@ -27,7 +27,7 @@ for file in $minion_dir/subsetf5/*.fast5; do newfile=$(echo "$file" | sed "s/HiS
 echo 'Generating archive including only mapping fast5...'
 tar zcf subsetf5.tar.gz $minion_dir/subsetf5/*
 archive_name=$(ls *f5.tar.gz)
-size_subsetf5=$(ll -h subsetf5.tar.gz | cut -f5 -d ' ')
+size_subsetf5=$(ls -lh subsetf5.tar.gz | cut -f5 -d ' ')
 echo "The generated archive was written to $archive_name and has size: $size_subsetf5"
 echo '...done.'
 
