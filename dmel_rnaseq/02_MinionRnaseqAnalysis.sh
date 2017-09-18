@@ -37,7 +37,7 @@ gmap -d gmapidx -D $ref_dir minion_2D.fasta -f gff3_match_cdna -n 0 > minion_gma
 echo 'Converting gmap_gff3 to standard gtf2...'
 gff2gtf.py minion_gmap.gff3 > minion_gmap.gtf
 echo 'Comparing to reference annotation using cuffcompare...'
-cuffcompare -r $ref_dir/Dmel_chr4.gtf minion_gmap.gtf
+cuffcompare -G -r $ref_dir/Dmel_chr4.gtf minion_gmap.gtf
 # time: 1min
 
 echo 'All done. Please check output in $minion_dir"cuffcmp.minion_gmap.gtf.tmap"'
