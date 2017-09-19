@@ -23,7 +23,7 @@ Amina Echchiki <sup>1,2</sup>, Kamil Jaron <sup>1,2</sup> , Walid Gharib <sup>2,
 
 ## Aim
 
-The aim of this practical session is to get your hands on real data generated from two different long-reads sequencing platforms: Oxford Nanopore [MinION](https://nanoporetech.com/products/minion) and Pacific Biosciences [RSII](http://www.pacb.com/products-and-services/pacbio-systems/rsii/). 
+The aim of this practical session is to get your hands on real data generated from two different long-reads sequencing platforms: Oxford Nanopore (ONT) [MinION](https://nanoporetech.com/products/minion) and Pacific Biosciences (PacBio) [RSII](http://www.pacb.com/products-and-services/pacbio-systems/rsii/). 
 
 
 ## Introduction 
@@ -33,3 +33,16 @@ The aim of this practical session is to get your hands on real data generated fr
 Last year, we analyzed genomic reads from long-reads platforms of the [lambda phage](https://en.wikipedia.org/wiki/Lambda_phage): it is a rather simple organism with small genome size (48kb) that made computations easier but not biologically interesting. 
 
 This year, we propose you to analyze both genomic and transcriptomic data from long-reads sequencing platforms from the fruit fly ([*Drosophila melanogaster*](https://en.wikipedia.org/wiki/Drosophila_melanogaster)), one of the genetically best-known eukaryotic organism. To make computations faster, we focused on assembling the smallest chromosome (chr. 4) and analyzing the transcriptomic reads mapping to it. 
+
+### Long reads technologies 
+
+TODO: compare short and long reads technologies for genome and transcriptome applications 
+
+#### PacBio RSII
+
+TODO: terminology, reads, cool publications, applications, the iso-seq method, perspectives, new applications and innovation 
+
+#### ONT MinION
+
+TODO: terminology, reads, cool publications, applications, perspectives, innovations
+
