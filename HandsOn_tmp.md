@@ -21,5 +21,8 @@ Amina Echchiki <sup>1,2</sup>, Kamil Jaron <sup>1,2</sup> , Walid Gharib <sup>2,
 *What?* [SIB training event](http://www.sib.swiss/training/upcoming-training-events/2017-longreads02), Hands-on session
 
 
+## Aim
+
+The aim of this practical session is to get your hands on real data generated from two different long-reads sequencing platforms: Oxford Nanopore [MinION](https://nanoporetech.com/products/minion) and Pacific Biosciences [RSII](http://www.pacb.com/products-and-services/pacbio-systems/rsii/). 
 
 
