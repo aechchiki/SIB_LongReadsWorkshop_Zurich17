@@ -55,3 +55,8 @@ You can use your user credentials that you received for this course (username an
 TODO add maximal requirements per user.
 
 
+## Hands on!
+
+### Unix: useful tips
+
+The system you are using as working platform is based on Ubuntu Linux: you can use Unix to communicate with it. We assume that you have familiarity with Unix, since you had the opportunity to take the [SIBWeb UNIX Fundamentals](https://edu.isb-sib.ch/course/view.php?id=82) e-learning module. In case you would like a refresh, we provide you a [UNIX cheat sheet](http://cheatsheetworld.com/programming/unix-linux-cheat-sheet/): the section `File system` should be enough to satisfy the purposes of this tutorial. 
