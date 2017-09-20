@@ -12,9 +12,9 @@ Amina Echchiki <sup>1,2</sup>, Kamil Jaron <sup>1,2</sup> , Walid Gharib <sup>2,
 <sup>3: Bioinformatics unit, University of Bern, CH-3012 Bern</sup>
 
 
-## Practical information 
+## Practical information
 
-*When?* October 5th & 6th, 2017 
+*When?* October 5th & 6th, 2017
 
 *Where?* [Irchel Campus](http://www.uzh.ch/en/about/info/sites/irchel.html), University of Zürich, CH-8057 Zürich
 
@@ -23,24 +23,24 @@ Amina Echchiki <sup>1,2</sup>, Kamil Jaron <sup>1,2</sup> , Walid Gharib <sup>2,
 
 ## Aim
 
-The aim of this practical session is to get your hands on real data generated from two different long-reads sequencing platforms: Oxford Nanopore (ONT) [MinION](https://nanoporetech.com/products/minion) and Pacific Biosciences (PacBio) [RSII](http://www.pacb.com/products-and-services/pacbio-systems/rsii/). 
+The aim of this practical session is to get your hands on real data generated from two different long-reads sequencing platforms: Oxford Nanopore (ONT) [MinION](https://nanoporetech.com/products/minion) and Pacific Biosciences (PacBio) [RSII](http://www.pacb.com/products-and-services/pacbio-systems/rsii/).
 
 
-## Introduction 
+## Introduction
 
 ### Biological material
 
-Last year, we analyzed genomic reads from long-reads platforms of the [lambda phage](https://en.wikipedia.org/wiki/Lambda_phage): it is a rather simple organism with small genome size (48kb) that made computations easier but not biologically interesting. 
+Last year, we analyzed genomic reads from long-reads platforms of the [lambda phage](https://en.wikipedia.org/wiki/Lambda_phage): it is a rather simple organism with small genome size (48kb) that made computations easier but not biologically interesting.
 
-This year, we propose you to analyze both genomic and transcriptomic data from long-reads sequencing platforms from the fruit fly ([*Drosophila melanogaster*](https://en.wikipedia.org/wiki/Drosophila_melanogaster)), one of the genetically best-known eukaryotic organism. To make computations faster, we focused on assembling the smallest chromosome (chr. 4) and analyzing the transcriptomic reads mapping to it. 
+This year, we propose you to analyze both genomic and transcriptomic data from long-reads sequencing platforms from the fruit fly ([*Drosophila melanogaster*](https://en.wikipedia.org/wiki/Drosophila_melanogaster)), one of the genetically best-known eukaryotic organism. To make computations faster, we focused on assembling the smallest chromosome (chr. 4) and analyzing the transcriptomic reads mapping to it.
 
-### Long reads technologies 
+### Long reads technologies
 
-TODO: compare short and long reads technologies for genome and transcriptome applications 
+TODO: compare short and long reads technologies for genome and transcriptome applications
 
 #### PacBio RSII
 
-TODO: terminology, reads, cool publications, applications, the iso-seq method, perspectives, new applications and innovation 
+TODO: terminology, reads, cool publications, applications, the iso-seq method, perspectives, new applications and innovation
 
 #### ONT MinION
 
@@ -50,7 +50,7 @@ TODO: terminology, reads, cool publications, applications, perspectives, innovat
 
 TODO: does it change with different OS?
 
-You can use your user credentials that you received for this course (username and password) to activate the Docker container that we built for you (kudos Walid). This image contains all the software you will need for this tutorial. You can then access to the Amazon server (TODO IP adress) we have reserved for your computations. 
+You can use your user credentials that you received for this course (username and password) to activate the Docker container that we built for you (kudos Walid). This image contains all the software you will need for this tutorial. You can then access to the Amazon server (TODO IP adress) we have reserved for your computations.
 
 TODO add maximal requirements per user.
 
@@ -59,4 +59,40 @@ TODO add maximal requirements per user.
 
 ### Unix: useful tips
 
-The system you are using as working platform is based on Ubuntu Linux: you can use Unix to communicate with it. We assume that you have familiarity with Unix, since you had the opportunity to take the [SIBWeb UNIX Fundamentals](https://edu.isb-sib.ch/course/view.php?id=82) e-learning module. In case you would like a refresh, we provide you a [UNIX cheat sheet](http://cheatsheetworld.com/programming/unix-linux-cheat-sheet/): the section `File system` should be enough to satisfy the purposes of this tutorial. 
+The system you are using as working platform is based on Ubuntu Linux: you can use Unix to communicate with it. We assume that you have familiarity with Unix, since you had the opportunity to take the [SIBWeb UNIX Fundamentals](https://edu.isb-sib.ch/course/view.php?id=82) e-learning module. In case you would like a refresh, we provide you a [UNIX cheat sheet](http://cheatsheetworld.com/programming/unix-linux-cheat-sheet/): the section `File system` should be enough to satisfy the purposes of this tutorial. Just keep in mind that we do not have the `vim` editor installed, so please use `nano` instead.
+
+### File organization
+
+On login, you should find yourself at home.
+
+ⓘ To check your location, you can use the command `pwd` :
+
+```
+$ pwd
+/home/<username>
+```
+
+Organisation is important to avoid getting lost in your data.
+
+ⓘ To create a new directory, you can use the command `mkdir` :
+
+```
+mkdir <directory>
+```
+
+ⓘ To move to a directory, you can use the command `cd` :
+
+```
+cd <directory>
+```
+
+ⓘ To browse through directories, you can use relative path or absolute path:
+
+```
+cd .. # relative path, i.e. go to one level higher directory
+cd /home/<username>/<directory> # absolute path
+```
+
+For our tutorial, we suggest a nested organisation, like follows:
+
+TODO check with kamil what he agrees on
