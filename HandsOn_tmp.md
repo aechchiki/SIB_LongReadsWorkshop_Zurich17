@@ -46,3 +46,12 @@ TODO: terminology, reads, cool publications, applications, the iso-seq method, p
 
 TODO: terminology, reads, cool publications, applications, perspectives, innovations
 
+## How to connect to the computing platform
+
+TODO: does it change with different OS?
+
+You can use your user credentials that you received for this course (username and password) to activate the Docker container that we built for you (kudos Walid). This image contains all the software you will need for this tutorial. You can then access to the Amazon server (TODO IP adress) we have reserved for your computations. 
+
+TODO add maximal requirements per user.
+
+
