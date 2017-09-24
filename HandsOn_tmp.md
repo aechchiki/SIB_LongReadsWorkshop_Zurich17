@@ -96,3 +96,32 @@ cd /home/<username>/<directory> # absolute path
 For our tutorial, we suggest a nested organisation, like follows:
 
 TODO check with kamil what he agrees on
+
+### Get the data
+
+For the genomic part, we will make use of an existing [dataset](https://www.ncbi.nlm.nih.gov/sra/?term=SRX499318) of *D. melanogaster* DNA reads generated from PacBio RSII instrument. For the transcriptomic part, we will make use of two unpublished datasets of RNA reads, generated from PacBio RSII (with size selection) and MinION MkII (R7.3 flowcell).
+
+⚠ The datasets you'll use for this tutorial consist of modified subsets of the above mentioned data. This operation was done with only intention to lower the computational resources load and running time.
+
+ⓘ To save data from a given web resource given its location, use `wget`:
+
+```
+wget <URL>
+```
+
+You can download the subset of DNA reads from here // TODO Kamil.
+
+You can download the subset of RNA reads from here (MinION) and here (PacBio) // TODO Amina (wait for the link to drive.sib.swiss).
+
+
+### Read extraction
+
+#### Format
+
+The output of MinION and PacBio RSII are both stored in [Hierarchical Data Format (HDF5)](https://en.wikipedia.org/wiki/Hierarchical_Data_Format#HDF5). This is basically an archive file format specifically designed to store large amount of data allowing rapid access to its contents. In our case, these files do not only contain the raw reads, but also metadata information about generated during the sequencing run and the basecalling. For the purposes of this tutorial, we will only need the reads sequences and their qualities, which can be easily stored in a fastq file for subsequent processing.
+
+ⓘ Data in HDF format can be explored using inbuilt [HDF5 tools](https://support.hdfgroup.org/HDF5/doc/RM/Tools.html), e.g.:
+
+```
+h5dump <HDF_file> # examine contents of HDF file and dump content to ASCII
+```
