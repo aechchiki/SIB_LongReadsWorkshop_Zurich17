@@ -116,7 +116,7 @@ You can download the subset of RNA reads from here (MinION) and here (PacBio) //
 
 ### Read extraction
 
-#### Format
+#### Generic HDF Format
 
 The output of MinION and PacBio RSII are both stored in [Hierarchical Data Format (HDF5)](https://en.wikipedia.org/wiki/Hierarchical_Data_Format#HDF5). This is basically an archive file format specifically designed to store large amount of data allowing rapid access to its contents. In our case, these files do not only contain the raw reads, but also metadata information about generated during the sequencing run and the basecalling. For the purposes of this tutorial, we will only need the reads sequences and their qualities, which can be easily stored in a fastq file for subsequent processing.
 
@@ -161,7 +161,7 @@ zcat <poretools_out>.fastq.gz | head
 
 � Choose a 2D read at random. Look for the corresponding reads in 1D (template/complement). Do you see an improvement in the quality scores? [Hint](https://en.wikipedia.org/wiki/Phred_quality_score)
 
-#### PacBio RSII
+#### PacBio RSII raw data format
 
 Sequencing calls on a PacBio RSII platform are based on the optical detection of the incorporation of a single phospholinked (type of) nucleotide. This is essentially the SMRT (Single Molecule Real Time) sequencing chemistry, and happens in ZMWs microwells (Zero Mode Waveguides) on the bottom of the flowcell (SMRTcell). At the bottom of ZMWs, a natural polymerase incorporates complementary bases to a DNA/cDNA fragment. Intuitively, the basecalling is done according to the corresponding base-level incorporation *events*, calculated based on the type of fluorescent dye (unique per nucleotide), over time. Optical raw data per SMRTcell is stored in a `bas.h5` (a type of HDF) and three associated `bax.h5` (each one containing a consecutive part of the nucleotide incorporation movie). In the `bax.h5`, you can find the basecalling information, alongside with metadata about the sequencing run and instrument settings. The `bas.h5` file is basically there to link the `bax.h5` files and contains run metadata. You can find extensive documentation about `*.h5` archive layout [here](http://files.pacb.com/software/instrument/2.0.0/bas.h5%20Reference%20Guide.pdf).
 
