@@ -125,3 +125,36 @@ The output of MinION and PacBio RSII are both stored in [Hierarchical Data Forma
 ```
 h5dump <HDF_file> # examine contents of HDF file and dump content to ASCII
 ```
+#### MinION raw data format
+
+Sequencing calls on a MinION platform are based on the detection of electric signal recorded through the nanopores of the flowcell, as the DNA/RNA fragment pass through it. Signal measurements are called *events*. The nature of the event depends on the nature of the nucleobases of the fragment entering the pore at a given time. Thus, the change of signal through time reflects the changes in nucleotide composition as the fragment passes through. This information is stored in Fast5 files (a type of HDF), one fast5 file per sequenced molecule. Basecalling is then achieved using algorithms based on HMM (Hidden Markov Model) or RNN (Recurrent Neural Nets). This is done by specialized software, which can be run locally (e.g., using [Albacore](https://nanoporetech.com/about-us/news/new-basecaller-now-performs-raw-basecalling-improved-sequencing-accuracy?utm_content=59855973&utm_medium=social&utm_source=twitter) for local basecalling directly from raw data) or on the ONT cloud (e.g., using [Metrichor](https://metrichor.com/) for basecalling through a step of *event detection*). The basecaller produces then one file per read, in pass/fail category if the basecalling was respectively successfull or not, including info about the nature of the read (template/complement/consensus 2D).
+
+You can extract the dataset you previously downloaded using [poretools](https://github.com/arq5x/poretools), a toolkit for working with sequencing data from MinION. The usage is detailed in the [documentation](https://poretools.readthedocs.io/en/latest/).
+
+ⓘ Good software generally comes with good documentation. To access the (not always comprehensive) command-line documentation, invoke the command using the `-h` / `--help` flag :
+
+```
+poretools --help
+```
+
+ⓘ If not otherwise specified, when a command is executed via interactive shell, output is written to stdout (standard output), which by default consists of the text terminal. To write the output to a file, use redirection with `>` ( greater-then) symbol:
+
+```
+cd $minion
+poretools fastq <path/to/fast5/>*.fast5 > <poretools_out>.fastq
+```
+
+ⓘ A good practice is to compress your data to archive after processing, in order to save storage space on the disk. You can still visualize compressed files in a terminal with `zcat` or go back to the uncompressed data using `gzip -d <file.gz>`:
+
+```
+gzip -9 <poretools_out>.fastq
+zcat <poretools_out>.fastq | head
+```
+
+� Are you familiar with the fastq format? What does each line correspond to?
+
+� What are the other utilities embedded in the `poretools` package?
+
+� How many reads are in this dataset?
+
+� How would you change the command line if you wanted to only extract the reads corresponding to a high quality subset of the 2D reads? Are there any 2D reads with no complementary template/complement?
