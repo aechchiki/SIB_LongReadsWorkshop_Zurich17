@@ -160,3 +160,28 @@ zcat <poretools_out>.fastq.gz | head
 � How would you change the command line if you wanted to only extract the reads corresponding to a high quality subset of the 2D reads? Are there any 2D reads with no complementary template/complement? Hint: how are the 2D reads generated? [Hint](https://poretools.readthedocs.io/en/latest/content/examples.html#poretools-fastq)
 
 � Choose a 2D read at random. Look for the corresponding reads in 1D (template/complement). Do you see an improvement in the quality scores? [Hint](https://en.wikipedia.org/wiki/Phred_quality_score)
+
+#### PacBio RSII
+
+Sequencing calls on a PacBio RSII platform are based on the optical detection of the incorporation of a single phospholinked (type of) nucleotide. This is essentially the SMRT (Single Molecule Real Time) sequencing chemistry, and happens in ZMWs microwells (Zero Mode Waveguides) on the bottom of the flowcell (SMRTcell). At the bottom of ZMWs, a natural polymerase incorporates complementary bases to a DNA/cDNA fragment. Intuitively, the basecalling is done according to the corresponding base-level incorporation *events*, calculated based on the type of fluorescent dye (unique per nucleotide), over time. Optical raw data per SMRTcell is stored in a `bas.h5` (a type of HDF) and three associated `bax.h5` (each one containing a consecutive part of the nucleotide incorporation movie). In the `bax.h5`, you can find the basecalling information, alongside with metadata about the sequencing run and instrument settings. The `bas.h5` file is basically there to link the `bax.h5` files and contains run metadata. You can find extensive documentation about `*.h5` archive layout [here](http://files.pacb.com/software/instrument/2.0.0/bas.h5%20Reference%20Guide.pdf).
+
+ⓘ Please note that this reads format is no longer used to store the basecalling information in newer instruments from PacBio, such as [Sequel](http://www.pacb.com/products-and-services/pacbio-systems/sequel/), in which data are stored in a [classical `*.bam` format](https://www.genomeweb.com/informatics/pacbio-unveils-plans-use-bam-format-sequence-data-user-community-weighs). However, all data produced by a RSII instrument will be still in this `*.h5` you are going to work with.
+
+As for MinION reads, dedicated software allows to extract the basecalling information from these `*.h5` files. We have already prepared a fastq dataset to use for following analysis, but you can test the extraction on [this](TODO wget stuff - use the smallest subset we have) dataset.
+
+```
+cd $pacbio
+mkdir testing && cd testing
+wget url_of_stuff TODO
+```
+
+You can extract this dataset using [pbh5tools](https://github.com/PacificBiosciences/pbh5tools), a set of python scripts to extract fasta/q from `*.h5` reads. The usage is detailed in the [documentation](https://github.com/PacificBiosciences/pbh5tools/blob/master/doc/index.rst). You will need [`bash5tools.py`](https://github.com/PacificBiosciences/pbh5tools/blob/master/doc/index.rst#tool-bash5toolspy) script to extract the reads in `*.fastq` format.
+
+```
+bash5tools.py <file.bas.h5> --outFilePrefix <prefix> --readType subreads --outType fastq
+gzip -9 <prefix>.fastq
+```
+
+� How many reads are in this dataset? From how many flowcells?
+
+� How are they called according to the PacBio terminology? [Hint](http://files.pacb.com/software/smrtanalysis/2.2.0/doc/smrtportal/help/!SSL!/Webhelp/Portal_PacBio_Glossary.htm)
