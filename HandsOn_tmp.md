@@ -185,3 +185,11 @@ gzip -9 <prefix>.fastq
 � How many reads are in this dataset? From how many flowcells?
 
 � How are they called according to the PacBio terminology? [Hint](http://files.pacb.com/software/smrtanalysis/2.2.0/doc/smrtportal/help/!SSL!/Webhelp/Portal_PacBio_Glossary.htm)
+
+### Genome assembly
+
+TODO Kamil
+
+### Assessing assembly quality
+
+TODO Kamil
