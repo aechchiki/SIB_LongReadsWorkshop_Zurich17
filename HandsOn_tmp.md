@@ -148,13 +148,15 @@ poretools fastq <path/to/fast5/>*.fast5 > <poretools_out>.fastq
 
 ```
 gzip -9 <poretools_out>.fastq
-zcat <poretools_out>.fastq | head
+zcat <poretools_out>.fastq.gz | head
 ```
 
-� Are you familiar with the fastq format? What does each line correspond to?
+� Are you familiar with the fastq format? What does each line correspond to? [Hint](https://en.wikipedia.org/wiki/FASTQ_format)
 
-� What are the other utilities embedded in the `poretools` package?
+� What are the other utilities embedded in the `poretools` toolkit? [Hint](https://poretools.readthedocs.io/en/latest/content/examples.html)
 
-� How many reads are in this dataset?
+� How many reads are in this dataset? [Hint](https://poretools.readthedocs.io/en/latest/content/examples.html#poretools-stats)
 
-� How would you change the command line if you wanted to only extract the reads corresponding to a high quality subset of the 2D reads? Are there any 2D reads with no complementary template/complement?
+� How would you change the command line if you wanted to only extract the reads corresponding to a high quality subset of the 2D reads? Are there any 2D reads with no complementary template/complement? Hint: how are the 2D reads generated? [Hint](https://poretools.readthedocs.io/en/latest/content/examples.html#poretools-fastq)
+
+� Choose a 2D read at random. Look for the corresponding reads in 1D (template/complement). Do you see an improvement in the quality scores? [Hint](https://en.wikipedia.org/wiki/Phred_quality_score)
