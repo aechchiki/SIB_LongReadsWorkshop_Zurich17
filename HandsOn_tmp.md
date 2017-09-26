@@ -193,3 +193,13 @@ TODO Kamil
 ### Assessing assembly quality
 
 TODO Kamil
+
+### Transcriptome assembly
+
+#### Introduction
+
+Long reads allow easier rebuild of the transcriptome: ideally, the reads are long enough to allow the recovery of the full-length transcripts. This means skipping the reconstruction part, otherwise necessary for transcript assembly from shorter reads such as from Illumina. The issue is that, to date, long reads such as from PacBio and MinION platforms have much higher error rate than Illumina reads (e.g. HiSeq). This is why generating a consensus from raw reads and eventually go deeper in error correction are both essential steps before digging further into the characterization and analysis of the transcriptome.
+
+For PacBio, a pipeline for transcriptome anaylsis is available, established and well maintained: the Iso-Seq method. For MinION data, there is no such advantage. One can think of tweaking the Iso-Seq method to make it handling raw data from non-PacBio platforms, but this is not straightforward, mainly due to the error rates and models that differ between technologies. Another approach would be to generate the consensus then correct it using de-novo or hybrid (short-reads based) error correction.
+
+In this tutorial, we will give you an overview of the Iso-Seq method for PacBio RNA-seq data and a glance of error correction on MinION RNA-seq data, using the error correction step from Canu. 
