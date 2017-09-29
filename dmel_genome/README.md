@@ -106,6 +106,11 @@ NOTE : ask participants to chose their own parameters for assembly, so they can 
 
 NOTE : make clear to audience why mapping is such an issue for long reads while short reads assembly can be very much mapping-less and why complexity of mapping of short reads to assembly (all vs reference) is different to problem of mapping for long read assembly (all vs all).
 
+```
+mkdir mini_asm & cd mini_asm
+minimap2 -x ava-pb ../reads/dmel_ch4_reads.fastq ../reads/dmel_ch4_reads.fastq > overlaps.paf
+miniasm -f ../reads/dmel_ch4_reads.fastq overlaps.paf > ch4.gfa
+```
 
 TODO mapping
 
